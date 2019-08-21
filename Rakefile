@@ -37,15 +37,16 @@ desc "Release version #{Workarea::ShippingEstimation::VERSION} of the gem"
 task :release do
   host = "https://#{ENV['BUNDLE_GEMS__WEBLINC__COM']}@gems.weblinc.com"
 
-  Rake::Task['workarea:changelog'].execute
-  system 'git add CHANGELOG.md'
-  system 'git commit -m "Update CHANGELOG"'
-  system 'git push origin HEAD'
+  #Rake::Task['workarea:changelog'].execute
+  #system 'git add CHANGELOG.md'
+  #system 'git commit -m "Update CHANGELOG"'
+  #system 'git push origin HEAD'
 
   system "git tag -a v#{Workarea::ShippingEstimation::VERSION} -m 'Tagging #{Workarea::ShippingEstimation::VERSION}'"
   system 'git push --tags'
 
   system 'gem build workarea-shipping_estimation.gemspec'
+  system "gem push workarea-shipping_estimation-#{Workarea::ShippingEstimation::VERSION}.gem"
   system "gem push workarea-shipping_estimation-#{Workarea::ShippingEstimation::VERSION}.gem --host #{host}"
   system "rm workarea-shipping_estimation-#{Workarea::ShippingEstimation::VERSION}.gem"
 end
