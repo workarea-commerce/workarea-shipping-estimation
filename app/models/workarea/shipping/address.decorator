@@ -1,0 +1,30 @@
+module Workarea
+  decorate Shipping::Address, with: :shipping_estimation do
+    decorated do
+      field :used_for_shipping_estimation, type: Boolean, default: false
+
+      before_validation :set_estimate_data
+      after_validation :unset_estimate_data
+    end
+
+    def set_estimate_data
+      return unless used_for_shipping_estimation?
+
+      Workarea.config
+              .shipping_estimation_placeholder_address
+              .each do |field, value|
+                send("#{field}=", value) if send(field).blank?
+              end
+    end
+
+    def unset_estimate_data
+      return unless used_for_shipping_estimation?
+
+      Workarea.config
+              .shipping_estimation_placeholder_address
+              .each do |field, value|
+                send("#{field}=", nil) if send(field) == value
+              end
+    end
+  end
+end

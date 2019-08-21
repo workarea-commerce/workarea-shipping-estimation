@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=19106&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 25 Feb 2014 15:11:05 GMT
+      Expires:
+      - Wed, 26 Feb 2014 15:11:05 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - '*'
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "19106",
+                       "short_name" : "19106",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "Philadelphia",
+                       "short_name" : "Philadelphia",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Pennsylvania",
+                       "short_name" : "PA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Philadelphia, PA 19106, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 39.95728889999999,
+                          "lng" : -75.20478799999999
+                       },
+                       "southwest" : {
+                          "lat" : 39.9234091,
+                          "lng" : -75.25161199999999
+                       }
+                    },
+                    "location" : {
+                       "lat" : 39.9412882,
+                       "lng" : -75.21873459999999
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 39.95728889999999,
+                          "lng" : -75.20478799999999
+                       },
+                       "southwest" : {
+                          "lat" : 39.9234091,
+                          "lng" : -75.25161199999999
+                       }
+                    }
+                 },
+                 "types" : [ "postal_code" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version:
+  recorded_at: Tue, 25 Feb 2014 15:11:05 GMT
+recorded_with: VCR 2.8.0

@@ -1,0 +1,13 @@
+Gemfile.lock
+.bundle/
+log/*.log
+pkg/
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal
+test/dummy/tmp/
+test/dummy/public/
+test/dummy/log/*.log
+node_modules
+test/reports
+package.json
+yarn.lock

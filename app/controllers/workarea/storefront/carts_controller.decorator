@@ -1,0 +1,17 @@
+module Workarea
+  decorate Storefront::CartsController, with: :shipping_estimation do
+    decorated do
+      before_action :set_shipping_estimation_address, only: :show
+    end
+
+    private
+
+    def set_shipping_estimation_address
+      SetShippingEstimationAddress.new(
+        current_checkout,
+        current_location,
+        current_user
+      ).perform
+    end
+  end
+end

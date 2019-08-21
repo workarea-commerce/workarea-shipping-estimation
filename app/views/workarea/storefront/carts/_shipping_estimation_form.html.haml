@@ -1,0 +1,12 @@
+- if cart.requires_shipping?
+  .shipping-estimation
+    %h2= t('workarea.storefront.orders.shipping_estimation')
+    = form_tag shipping_estimation_path, method: 'post', id: 'estimate_shipping_form', class: 'inline-form' do
+      .inline-form__cell
+        .value= text_field_tag :postal_code, cart.shipping_postal_code, class: 'text-box text-box--small', required: true, autocorrect: 'off', autocomplete: 'postal-code', placeholder: t('workarea.storefront.carts.postal_code'), title: t('workarea.storefront.carts.postal_code')
+      %p.inline-form__cell= button_tag t('workarea.storefront.carts.estimate'), value: 'estimate_shipping', class: 'button'
+
+      - if cart.show_shipping_services?
+        - options = cart.shipping_options.map { |o| ["#{o.name} - #{number_to_currency o.price}", o.name] }
+        .property
+          .value= select_tag 'shipping_service', options_for_select(options, cart.shipping_service), title: t('workarea.storefront.carts.shipping_services'), data: { form_submitting_control: '' }
