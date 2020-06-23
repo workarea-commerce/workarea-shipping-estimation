@@ -3,7 +3,11 @@ require 'test_helper'
 module Workarea
   module Storefront
     class ShippingEstimationSystemTest < Workarea::SystemTest
-      setup :product, :tax_category, :shipping_service
+      setup :configure_geocoder, :product, :tax_category, :shipping_service
+
+      def configure_geocoder
+        Geocoder.configure(lookup: :google)
+      end
 
       def product
         @product = create_product(
