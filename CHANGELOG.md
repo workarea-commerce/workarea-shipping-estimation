@@ -1,3 +1,14 @@
+Workarea Shipping Estimation 1.1.2 (2020-06-25)
+--------------------------------------------------------------------------------
+
+*   Set Geocoder lookup in tests so cassettes will work
+
+    This will avoid changes in default Geocoder changing test behavior.
+
+    Ben Crouse
+
+
+
 Workarea Shipping Estimation 1.1.2 (2019-08-21)
 --------------------------------------------------------------------------------
 
