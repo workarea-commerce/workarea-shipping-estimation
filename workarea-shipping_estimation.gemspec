@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
   s.license = 'Business Software License'
 
-  s.required_ruby_version = '>= 2.3.0'
+  s.required_ruby_version = ['>= 2.7', '< 3.5']
 
   s.add_dependency 'workarea', '~> 3.x', '>= 3.5.14'
 end
